@@ -1,5 +1,5 @@
 /* package whatever; // don't place package name! */
-
+//duplicates are not allowed or else they would get repeated
 import java.util.*;
 import java.lang.*;
 import java.io.*;
