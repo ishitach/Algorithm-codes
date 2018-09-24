@@ -1,0 +1,63 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int[] a = new int[]{0,2,0,3,0,5,6,0,0};
+		int[] b = new int[]{1,8,9,10,15};
+		int k=0;
+		for(int i=0;i<a.length;i++){
+			if(a[i]!=0){
+			a[k++]=a[i];
+			}
+		}
+		int m=k-1;
+		int n=b.length-1;
+		int s=m+n+1;
+		
+		// for(int i=0;i<a.length;i++){
+		// 	if(a[i]>b[0]){
+		// 	int temp=a[i];
+		// 	a[i]=b[0];
+		// 	b[0]= temp;	
+		// 	int first=b[0];
+		// 	int j;
+			
+		// 	for(j=1;j<b.length && b[j]<first;j++){
+		// 	b[j-1]=b[j];
+		// 	}
+		// 	b[j-1]=first;
+		// 	}
+		// }
+		while(m>=0 && n>=0){
+			if(a[m] > b[n]){
+				a[s--]=a[m--];
+			}
+			else{
+				a[s--]=b[n--];
+			}
+		}
+		while(n>=0){
+			a[s--]=b[n--];
+		}
+		
+		System.out.println(Arrays.toString(a));
+		System.out.println(Arrays.toString(b));
+	}
+	
+	private static void swap(int[] a, int i, int j){
+		int temp=a[i];
+		a[i]=a[j];
+		a[j]= temp;
+	}
+
+	
+}
