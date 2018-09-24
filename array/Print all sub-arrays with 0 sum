@@ -1,0 +1,50 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int[] a = new int[]{3,4,-7,3,1,3,1,-4,-2,-2};
+
+		Map<Integer, List<Integer>> map= new HashMap<>();
+		insert(map, 0,-1);
+		boolean found = false;
+
+		int sum =0;
+		for(int i=0;i<a.length;i++){
+			sum+=a[i];
+			if(map.containsKey(sum)){
+				List<Integer> curr = map.get(sum);
+				
+				for(Integer val: curr){
+					// System.out.println("vvvvv "+val);
+					System.out.println("printing "+(val+1) + "   "+ i);
+				}
+				
+				found =true;
+
+			}
+			insert(map, sum, i);
+		}
+		if(!found){
+			System.out.println("pair not found");
+		}
+	}
+	
+	private static<K,V> void insert(Map<K, List<V>> hashMap, K key, V value)
+    {
+        
+        if (!hashMap.containsKey(key)) {
+            hashMap.put(key, new ArrayList<>());
+        }
+
+        hashMap.get(key).add(value);
+    }
+}
