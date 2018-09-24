@@ -1,0 +1,37 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int[] a = new int[]{5,6,-5,5,3,5,3,-2,0};
+		int total=8;
+		Map<Integer, Integer> map=new HashMap<>();
+		map.put(0,-1);
+		int sum=0;
+		int len=0;
+		int last=-1;
+
+		for(int i=1;i<a.length;i++){
+		sum+=a[i];
+		if(!map.containsKey(sum))
+		map.put(sum,i);
+		
+		if(map.containsKey(sum-total ) && len<i - map.get(sum-total )){
+			len= i-map.get(sum-total );
+			last=i;
+			}
+		}
+	
+		System.out.println(last-len+1+" "+last);
+		
+	}
+	
+}
