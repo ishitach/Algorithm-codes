@@ -23,10 +23,11 @@ class Ideone
 			else{
 				count=i-prev_index;
 				prev_index=i;
+			
+			}
 				if(count > max_count){
 				max_count=count;
-				max=i;
-			}
+				max=prev_index;
 			}
 		
 		}
