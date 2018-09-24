@@ -1,0 +1,27 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int[] a = new int[]{1,2,3,4,4};
+		int pivot=1;
+		int j=a[0];
+		for(int i=1;i<a.length;i++){
+		j=j^a[i];
+		}
+		for(int i=1;i<a.length;i++){
+			j=j^i;
+		}	
+		System.out.println(j);
+		
+	}
+	
+}
