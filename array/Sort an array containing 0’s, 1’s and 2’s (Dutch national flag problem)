@@ -1,0 +1,44 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int[] a = new int[]{0,1,2,2,1,0,0,2,0,1,1,0};
+		int pivot=1;
+		int start=0;
+		int mid=0;
+		int end=a.length-1;
+		while(mid<=end){
+			if(a[mid]<pivot){
+			swap(a,start, mid);
+			++start;
+			++mid;
+			}
+			else if(a[mid]>pivot){
+				swap(a,mid,end);
+				--end;
+			}
+			else{
+				++mid;
+			}
+		}
+		System.out.println(Arrays.toString(a));
+		
+	}
+	
+	private static void swap(int[] a, int i, int j){
+		int temp=a[i];
+		a[i]=a[j];
+		a[j]= temp;
+	}
+
+	
+}
