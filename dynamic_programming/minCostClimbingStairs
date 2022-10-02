@@ -1,0 +1,46 @@
+Basic solution with recursion:
+
+class Solution {
+    public int minCostClimbingStairs(int[] cost) {
+        return dp(cost,cost.length);
+    }
+    
+    public int dp(int[] cost, int x){
+        if(x<0){
+            return 0;
+        }
+        
+        if(x == 0 || x == 1){
+            return 0;
+        }
+        
+        return Math.min(dp(cost,x-1)+cost[x-1],dp(cost,x-2)+cost[x-2]);
+    }
+}
+
+//Memoization 
+
+class Solution {
+    int[] costTillStep;
+    public int minCostClimbingStairs(int[] cost) {
+        costTillStep = new int[cost.length+1];
+        return dp(cost,cost.length);
+    }
+    
+    public int dp(int[] cost, int x){
+        if(x<0){
+            return 0;
+        }
+        
+        if(x == 0 || x == 1){
+            return 0;
+        }
+        
+        if(costTillStep[x]!=0){
+            return costTillStep[x];
+        }
+        
+        costTillStep[x] = Math.min(dp(cost,x-1)+cost[x-1],dp(cost,x-2)+cost[x-2]);
+        return costTillStep[x];
+    }
+}
